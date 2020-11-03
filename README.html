@@ -1,0 +1,68 @@
+<h1>Simple Flask App</h1>
+<p>Aplikacja Dydaktyczna wyświetlająca imię i wiadomość w różnych formatach dla zajęć
+o Continuous Integration, Continuous Delivery i Continuous Deployment.</p>
+<ul>
+<li>W projekcie wykorzystamy virtual environment, dla utworzenia hermetycznego środowisko dla aplikacji:</li>
+</ul>
+<p>```
+  # tworzymy hermetyczne środowisko dla bibliotek aplikacji:
+  $ python3 -m venv .venv</p>
+<p># aktywowanie hermetycznego środowiska
+  $ source .venv/bin/activate
+  $ pip install -r requirements.txt
+  $ pip install -r test_requirements.txt</p>
+<p># zobacz
+  $ pip list
+  ```</p>
+<p>Sprawdź: <a href="https://docs.python.org/3/tutorial/venv.html">tutorial venv</a> oraz <a href="http://flask.pocoo.org">biblioteki flask</a>.</p>
+<ul>
+<li>Uruchamianie applikacji:</li>
+</ul>
+<p>```
+  # jako zwykły program
+  $ python main.py</p>
+<p># albo:
+  $ PYTHONPATH=. FLASK_APP=hello_world flask run
+  ```</p>
+<ul>
+<li>Uruchamianie testów (see: http://doc.pytest.org/en/latest/capture.html):</li>
+</ul>
+<p><code>$ PYTHONPATH=. py.test
+  $ PYTHONPATH=. py.test --verbose -s</code></p>
+<ul>
+<li>Kontynuując pracę z projektem, aktywowanie hermetycznego środowiska dla aplikacji py:</li>
+</ul>
+<p><code># deaktywacja
+  $ deactivate</code></p>
+<p>```
+  ...</p>
+<p># aktywacja 
+  $ source .venv/bin/activate
+  ```</p>
+<ul>
+<li>Integracja z TravisCI:</li>
+</ul>
+<p><code># miejsce na twoje notatki</code></p>
+<h1>Pomocnicze</h1>
+<h2>Ubuntu</h2>
+<ul>
+<li>Instalacja dockera: <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">dockerce howto</a></li>
+</ul>
+<h2>Centos</h2>
+<ul>
+<li>Instalacja docker-a:</li>
+</ul>
+<p>```
+  $ yum remove docker \
+        docker-common \
+        container-selinux \
+        docker-selinux \
+        docker-engine</p>
+<p>$ yum install -y yum-utils</p>
+<p>$ yum-config-manager \
+      --add-repo \
+      https://download.docker.com/linux/centos/docker-ce.repo</p>
+<p>$ yum makecache fast
+  $ yum install -y docker-ce
+  $ systemctl start docker
+  ```</p>
